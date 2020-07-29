@@ -77,9 +77,19 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
                     break;
             }
-
-            var messageText = stepContext.Options?.ToString() ?? $"What type of challenge do you want to play?";
+            var attachments = new List<Attachment>();
+            
+            var messageText = stepContext.Options?.ToString() ?? $"What type of challenge do you want to play? These are the options: ";
+            
+            var reply = MessageFactory.Attachment(attachments);
+            reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+            reply.Attachments.Add(Cards.GetThumbnailCard1().ToAttachment());
+            reply.Attachments.Add(Cards.GetThumbnailCard2().ToAttachment()); 
+            reply.Attachments.Add(Cards.GetThumbnailCard3().ToAttachment()); 
+           
+            
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+            await stepContext.Context.SendActivityAsync(reply, cancellationToken);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
 
