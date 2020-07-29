@@ -53,32 +53,20 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                 return await stepContext.NextAsync(null, cancellationToken);
             }
 
-            
-  
-            var messageText = stepContext.Options?.ToString() ?? $"Hi, my name is ***, what is your name?";
+            var messageText = stepContext.Options?.ToString() ?? $"Hi, my name is Mat, what is your name?";
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
 
         private async Task<DialogTurnResult> GreetingStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            if (!_luisRecognizer.IsConfigured)
-            {
-                await stepContext.Context.SendActivityAsync(
-                    MessageFactory.Text("NOTE: LUIS is not configured. To enable all capabilities, add 'LuisAppId', 'LuisAPIKey' and 'LuisAPIHostName' to the appsettings.json file.", inputHint: InputHints.IgnoringInput), cancellationToken);
-
-                return await stepContext.NextAsync(null, cancellationToken);
-            }
-
             var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
 
             switch (luisResult.TopIntent().intent)
             {
 
                 case MathBot.Intent.Name:
-                    // We haven't implemented the GetWeatherDialog so we just display a TODO message.
-
-                    string name = luisResult.nameEntity;
+                    string name = luisResult.NameEntity;
                     var getGreetingMessageText = $"Hello, {name}!";
                     var getGreetingMessage = MessageFactory.Text(getGreetingMessageText, getGreetingMessageText, InputHints.IgnoringInput);
                     await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
@@ -92,19 +80,34 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     break;
             }
 
-            return await stepContext.NextAsync(null, cancellationToken);
+            var messageText = stepContext.Options?.ToString() ?? $"What type of challenge do you want to play?";
+            var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
 
         private async Task<DialogTurnResult> GameChoiceStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var options = new PromptOptions()
-            {
-                Prompt = MessageFactory.Text("What game would you like to play?"),
-                RetryPrompt = MessageFactory.Text("That was not a valid choice, please select a card or number from 1 to 9."),
-                Choices = GetChoices(),
-            };
+            var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
 
-            return await stepContext.PromptAsync(nameof(ChoicePrompt), options, cancellationToken);
+            switch (luisResult.TopIntent().intent)
+            {
+
+                case MathBot.Intent.Game:
+                    string challengeType = luisResult.ChallengeType;
+                    var getGreetingMessageText = $"So you want to play a {challengeType} challenge right?!";
+                    var getGreetingMessage = MessageFactory.Text(getGreetingMessageText, getGreetingMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
+                    break;
+
+                default:
+                    // Catch all for unhandled intents
+                    var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
+                    var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
+                    break;
+            }
+
+            return await stepContext.NextAsync(null, cancellationToken);
         }
 
         private async Task<DialogTurnResult> ActStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)

@@ -8,7 +8,7 @@ namespace Luis
     // Extends the partial MathBotclass with methods and properties that simplify accessing entities in the luis results
     public partial class MathBot
     {
-        public string nameEntity 
+        public string NameEntity 
         {
             get
             {
@@ -16,5 +16,7 @@ namespace Luis
                 return nameValue;
             }
         }
+
+        public string ChallengeType => Entities?._instance?.Type_of_Game?.FirstOrDefault()?.Text;
     }
 }
