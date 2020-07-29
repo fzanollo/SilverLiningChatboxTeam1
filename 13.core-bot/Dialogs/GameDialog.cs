@@ -12,20 +12,19 @@ using QuestionsOverview;
 
 namespace Microsoft.BotBuilderSamples.Dialogs
 {
-    public class GameDialog : CancelAndHelpDialog
+    public class GameDialog : ComponentDialog
     {
         private readonly MathBotRecognizer _luisRecognizer;
         private const string DestinationStepMsgText = "Where would you like to travel to?";
         private const string OriginStepMsgText = "Where are you traveling from?";
         private Questions gameObject = new Questions();
 
-        
-
-        public GameDialog(MathBotRecognizer luisRecognizer)
+        public GameDialog(MathBotRecognizer luisRecognizer, CasualDialog casualDialog)
             : base(nameof(GameDialog))
         {
             _luisRecognizer = luisRecognizer;
             AddDialog(new TextPrompt(nameof(TextPrompt)));
+            AddDialog(casualDialog);
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 GameStepAsync,
@@ -44,7 +43,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                 int curr_points = 0;
                 int max_points = 10;
                 //int max_points = gameDetails.maxPoints;
-                while(curr_points < max_points)
+                while (curr_points < max_points)
                 {
                     var nextQuestion = gameObject.getQuestion();
                     string question = nextQuestion.Item1;
@@ -55,27 +54,21 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
                     //compare answer to correct answer
                     //check intent:
-                        // if intent == answer
-                            //ifincorrect -> prompt "Incorrect answer! Correct answer is {correct_answer}, -1 point
-                            // if correct -> prompt "Correct Answer! +1
-                        //if intent == stop
-                            //end conversation, go to EndGameAsync
+                    // if intent == answer
+                    //ifincorrect -> prompt "Incorrect answer! Correct answer is {correct_answer}, -1 point
+                    // if correct -> prompt "Correct Answer! +1
+                    //if intent == stop
+                    //end conversation, go to EndGameAsync
                     //if no more questions exist, prompt something and exit
                 }
             }
             else if (gameDetails.GameType == "casual")
             {
-                int curr_question = 0;
-                int max_questions = 10;
-                //int max_questions = gameDetails.maxQuestions
-                while (curr_question < max_questions)
-                {
-
-                }
+                return await stepContext.BeginDialogAsync(nameof(CasualDialog), cancellationToken);
             }
             else //timed
             {
-               
+
             }
             return await stepContext.NextAsync(null, cancellationToken);
         }

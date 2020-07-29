@@ -106,7 +106,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
                 case MathBot.Intent.Game:
                     string challengeType = luisResult.ChallengeType;
-                    var getGreetingMessageText = $"So you want to play a {challengeType} challenge right?!";
+                    var getGreetingMessageText = $"A {challengeType} challenge? awesome, let's go!";
                     var getGreetingMessage = MessageFactory.Text(getGreetingMessageText, getGreetingMessageText, InputHints.IgnoringInput);
                     await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
 
