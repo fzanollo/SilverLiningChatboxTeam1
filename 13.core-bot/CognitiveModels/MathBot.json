@@ -2,6 +2,15 @@
   "luis_schema_version": "7.0.0",
   "intents": [
     {
+      "name": "Answer",
+      "features": [
+        {
+          "modelName": "number",
+          "isRequired": false
+        }
+      ]
+    },
+    {
       "name": "Game",
       "features": []
     },
@@ -164,6 +173,16 @@
       ]
     },
     {
+      "text": "12",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "123",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "13 min",
       "intent": "Time_challenge",
       "entities": [
@@ -176,8 +195,28 @@
       ]
     },
     {
+      "text": "134",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "1346",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "16",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "2",
-      "intent": "None",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "213",
+      "intent": "Answer",
       "entities": []
     },
     {
@@ -193,8 +232,43 @@
       ]
     },
     {
+      "text": "23",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "235",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "24",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "26",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "27451",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "3",
-      "intent": "None",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "31",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "4",
+      "intent": "Answer",
       "entities": []
     },
     {
@@ -211,7 +285,12 @@
     },
     {
       "text": "5",
-      "intent": "None",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "52",
+      "intent": "Answer",
       "entities": []
     },
     {
@@ -227,6 +306,16 @@
       ]
     },
     {
+      "text": "55",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "6",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "6 min",
       "intent": "Time_challenge",
       "entities": [
@@ -237,6 +326,46 @@
           "children": []
         }
       ]
+    },
+    {
+      "text": "61",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "7",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "72",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "73",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "75",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "8",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "82",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "9",
+      "intent": "Answer",
+      "entities": []
     },
     {
       "text": "91 minutes please",
@@ -906,6 +1035,16 @@
       "entities": []
     },
     {
+      "text": "i am matt too",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "i believe is 60",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "i didn't hear repeat again",
       "intent": "Utilities.Repeat",
       "entities": []
@@ -1106,6 +1245,16 @@
       "entities": []
     },
     {
+      "text": "i think its 3",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "i think its 65",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "i think that 50 minutes would be enough",
       "intent": "Time_challenge",
       "entities": [
@@ -1116,6 +1265,11 @@
           "children": []
         }
       ]
+    },
+    {
+      "text": "i think the answer is 1",
+      "intent": "Answer",
+      "entities": []
     },
     {
       "text": "i wanna do only 7 minutes",
@@ -1259,6 +1413,11 @@
     {
       "text": "i want to all of them",
       "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to believe that is 41",
+      "intent": "Answer",
       "entities": []
     },
     {
@@ -1416,6 +1575,11 @@
       "entities": []
     },
     {
+      "text": "i want to think that is 5",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "i would like to play the casual game",
       "intent": "Game",
       "entities": []
@@ -1458,6 +1622,21 @@
       "entities": []
     },
     {
+      "text": "is 12",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "is 234",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "is 52",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
       "text": "is there any help",
       "intent": "Utilities.Help",
       "entities": []
@@ -1480,6 +1659,31 @@
     {
       "text": "it finished",
       "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "it is 92",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "it is 932",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "it must be 12",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "it should be 2",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "its 2",
+      "intent": "Answer",
       "entities": []
     },
     {
@@ -2935,6 +3139,21 @@
     {
       "text": "that's fine",
       "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "the answer is 3",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "the answer is 45",
+      "intent": "Answer",
+      "entities": []
+    },
+    {
+      "text": "the answer is 5",
+      "intent": "Answer",
       "entities": []
     },
     {

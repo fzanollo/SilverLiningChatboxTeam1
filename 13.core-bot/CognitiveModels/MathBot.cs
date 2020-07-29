@@ -19,6 +19,7 @@ namespace Luis
         public string AlteredText;
 
         public enum Intent {
+            Answer, 
             Game, 
             Name, 
             None, 
