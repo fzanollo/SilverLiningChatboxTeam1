@@ -11,9 +11,9 @@ namespace QuestionsOverview
     {
       private List<Tuple<string,int>> qst = new List<Tuple<string,int>>()
       {
-        Tuple.Create("whats5x5",25),
-        Tuple.Create("what 6x6",36),
-        Tuple.Create("what 7x7",49),
+        Tuple.Create("what's 5x5",25),
+        Tuple.Create("what's 6x6",36),
+        Tuple.Create("what's 7x7",49),
       };
         private int index;
 

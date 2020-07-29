@@ -19,6 +19,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private int questionNr = 0;
         private int points = 0;
 
+        private string currentQuestion;
+        private int currentAnswer;
+
         public CasualDialog(MathBotRecognizer luisRecognizer)
             : base(nameof(CasualDialog))
         {
@@ -26,7 +29,8 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
-                OneQuestionAsync,
+                QuestionAsync,
+                AnswerAsync,
                 EndGameAsync,
             }));
 
@@ -34,26 +38,29 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             InitialDialogId = nameof(WaterfallDialog);
         }
 
-        private async Task<DialogTurnResult> OneQuestionAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        private async Task<DialogTurnResult> QuestionAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             
             var nextQuestion = gameObject.getQuestion();
-            string question = $"Question number {questionNr + 1}: {nextQuestion.Item1}";
-            int correct_answer = nextQuestion.Item2;
+            currentQuestion = $"Question number {questionNr + 1}: {nextQuestion.Item1}";
+            currentAnswer = nextQuestion.Item2;
 
             //prompt question and await answer
-            var promptMessage = MessageFactory.Text(question, question, InputHints.ExpectingInput);
-            await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
-            var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
+            var promptMessage = MessageFactory.Text(currentQuestion, currentQuestion, InputHints.ExpectingInput);
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+        }
 
+        private async Task<DialogTurnResult> AnswerAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
             switch (luisResult.TopIntent().intent)
             {
                 case MathBot.Intent.Answer:
                     questionNr++;
 
-                    string answer = luisResult.Text;
+                    string answer = luisResult.NumberEntity;
                     var feedbackMessageText = "";
-                    if (answer.Equals(correct_answer))
+                    if (answer.Equals(currentAnswer))
                     {
                         feedbackMessageText = $"{answer} is correct!, excellent";
                         points++;
@@ -74,10 +81,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
                     break;
             }
-            
+
             return await stepContext.NextAsync(null, cancellationToken);
         }
-
             private async Task<DialogTurnResult> EndGameAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var gameEndMessage = $"You scored: {points}!";

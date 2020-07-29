@@ -69,7 +69,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             }
             else if (gameDetails.GameType == "casual")
             {
-                return await stepContext.BeginDialogAsync(nameof(CasualDialog), null ,cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(CasualDialog), gameDetails, cancellationToken);
             }
             else //timed
             {
