@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Luis;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Choices;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
@@ -32,6 +33,8 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 IntroStepAsync,
+                GreetingStepAsync,
+                GameChoiceStepAsync,
                 ActStepAsync,
                 FinalStepAsync,
             }));
@@ -50,15 +53,64 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                 return await stepContext.NextAsync(null, cancellationToken);
             }
 
-            // Use the text provided in FinalStepAsync or the default if it is the first time.
-            var weekLaterDate = DateTime.Now.AddDays(7).ToString("MMMM d, yyyy");
-            var messageText = stepContext.Options?.ToString() ?? $"What can I help you with today?\nSay something like \"Book a flight from Paris to Berlin on {weekLaterDate}\"";
+            
+  
+            var messageText = stepContext.Options?.ToString() ?? $"Hi, my name is ***, what is your name?";
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
         }
 
+        private async Task<DialogTurnResult> GreetingStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            if (!_luisRecognizer.IsConfigured)
+            {
+                await stepContext.Context.SendActivityAsync(
+                    MessageFactory.Text("NOTE: LUIS is not configured. To enable all capabilities, add 'LuisAppId', 'LuisAPIKey' and 'LuisAPIHostName' to the appsettings.json file.", inputHint: InputHints.IgnoringInput), cancellationToken);
+
+                return await stepContext.NextAsync(null, cancellationToken);
+            }
+
+            var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
+
+            switch (luisResult.TopIntent().intent)
+            {
+
+                case MathBot.Intent.Name:
+                    // We haven't implemented the GetWeatherDialog so we just display a TODO message.
+
+                    string name = luisResult.nameEntity;
+                    var getGreetingMessageText = $"Hello, {name}!";
+                    var getGreetingMessage = MessageFactory.Text(getGreetingMessageText, getGreetingMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
+                    break;
+
+                default:
+                    // Catch all for unhandled intents
+                    var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
+                    var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
+                    break;
+            }
+
+            return await stepContext.NextAsync(null, cancellationToken);
+        }
+
+        private async Task<DialogTurnResult> GameChoiceStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            var options = new PromptOptions()
+            {
+                Prompt = MessageFactory.Text("What game would you like to play?"),
+                RetryPrompt = MessageFactory.Text("That was not a valid choice, please select a card or number from 1 to 9."),
+                Choices = GetChoices(),
+            };
+
+            return await stepContext.PromptAsync(nameof(ChoicePrompt), options, cancellationToken);
+        }
+
         private async Task<DialogTurnResult> ActStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
+
+
             if (!_luisRecognizer.IsConfigured)
             {
                 // LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
@@ -81,15 +133,15 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                         //TravelDate = luisResult.TravelDate,
                     };
 
+                    //var options = new PromptOptions()
+                    //{
+                        //Prompt = MessageFactory.Text("What game would you like to play?"),
+                        //RetryPrompt = MessageFactory.Text("That was not a valid choice, please select a card or number from 1 to 9."),
+                        //Choices = GetChoices(),
+                    //};
+
                     // Run the BookingDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
                     return await stepContext.BeginDialogAsync(nameof(BookingDialog), bookingDetails, cancellationToken);
-
-                case MathBot.Intent.Name:
-                    // We haven't implemented the GetWeatherDialog so we just display a TODO message.
-                    var getWeatherMessageText = "TODO: get weather flow here";
-                    var getWeatherMessage = MessageFactory.Text(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
-                    await stepContext.Context.SendActivityAsync(getWeatherMessage, cancellationToken);
-                    break;
 
                 default:
                     // Catch all for unhandled intents
@@ -149,6 +201,19 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             // Restart the main dialog with a different message the second time around
             var promptMessage = "What else can I do for you?";
             return await stepContext.ReplaceDialogAsync(InitialDialogId, promptMessage, cancellationToken);
+        }
+
+        private IList<Choice> GetChoices()
+        {
+            var cardOptions = new List<Choice>()
+            {
+                new Choice() { Value = "Time Challenge", Synonyms = new List<string>() { "time", "timed" } },
+                new Choice() { Value = "Points Challenge", Synonyms = new List<string>() { "points" } },
+                new Choice() { Value = "Casual", Synonyms = new List<string>() { "casual" } },
+                
+            };
+
+            return cardOptions;
         }
     }
 }
