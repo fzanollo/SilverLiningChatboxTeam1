@@ -105,7 +105,14 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     var getGreetingMessageText = $"So you want to play a {challengeType} challenge right?!";
                     var getGreetingMessage = MessageFactory.Text(getGreetingMessageText, getGreetingMessageText, InputHints.IgnoringInput);
                     await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
-                    break;
+
+
+                    var gameDetails = new GameDetails()
+                    {
+                        GameType = challengeType
+                    };
+
+                    return await stepContext.BeginDialogAsync(nameof(GameDialog), gameDetails, cancellationToken);
 
                 default:
                     // Catch all for unhandled intents

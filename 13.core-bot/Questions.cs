@@ -9,7 +9,6 @@ namespace QuestionsOverview
 {
     class Questions
     {
-
       private List<Tuple<string,int>> qst = new List<Tuple<string,int>>()
       {
         Tuple.Create("whats5x5",25),

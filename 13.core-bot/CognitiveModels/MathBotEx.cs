@@ -18,5 +18,7 @@ namespace Luis
         }
 
         public string ChallengeType => Entities?._instance?.Type_of_Game?.FirstOrDefault()?.Text;
+
+        //add for answer/number entity
     }
 }

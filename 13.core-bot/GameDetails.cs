@@ -5,6 +5,7 @@ namespace Microsoft.BotBuilderSamples
 {
     public class GameDetails
     {
-        public string PlayerName { get; set; }
+        
+        public string GameType { get; set; }
     }
 }
