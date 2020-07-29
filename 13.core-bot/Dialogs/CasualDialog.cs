@@ -22,6 +22,8 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private string currentQuestion;
         private int currentAnswer;
 
+        private int maxQuestions = 2;
+
         public CasualDialog(MathBotRecognizer luisRecognizer)
             : base(nameof(CasualDialog))
         {
@@ -31,7 +33,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             {
                 QuestionAsync,
                 AnswerAsync,
-                EndGameAsync,
+                CheckEndConditionAsync,
             }));
 
             // The initial child Dialog to run.
@@ -44,6 +46,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             var nextQuestion = gameObject.getQuestion();
             currentQuestion = $"Question number {questionNr + 1}: {nextQuestion.Item1}";
             currentAnswer = nextQuestion.Item2;
+            questionNr++;
 
             //prompt question and await answer
             var promptMessage = MessageFactory.Text(currentQuestion, currentQuestion, InputHints.ExpectingInput);
@@ -56,11 +59,10 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             switch (luisResult.TopIntent().intent)
             {
                 case MathBot.Intent.Answer:
-                    questionNr++;
 
                     string answer = luisResult.NumberEntity;
                     var feedbackMessageText = "";
-                    if (answer.Equals(currentAnswer))
+                    if (answer.Equals(currentAnswer.ToString()))
                     {
                         feedbackMessageText = $"{answer} is correct!, excellent";
                         points++;
@@ -84,10 +86,20 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
             return await stepContext.NextAsync(null, cancellationToken);
         }
-            private async Task<DialogTurnResult> EndGameAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            private async Task<DialogTurnResult> CheckEndConditionAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var gameEndMessage = $"You scored: {points}!";
-            return await stepContext.ReplaceDialogAsync(InitialDialogId, gameEndMessage, cancellationToken);
+            if(questionNr< maxQuestions)
+            {
+                return await stepContext.ReplaceDialogAsync(InitialDialogId, "Next one", cancellationToken);
+            }
+            else
+            {
+                questionNr = 0;
+                var gameEndMessageText = $"You scored: {points}!";
+                var getEndMessage = MessageFactory.Text(gameEndMessageText, gameEndMessageText, InputHints.IgnoringInput);
+                await stepContext.Context.SendActivityAsync(getEndMessage, cancellationToken);
+                return await stepContext.ReplaceDialogAsync(InitialDialogId, gameEndMessageText, cancellationToken);
+            }
         }
     }
 }
