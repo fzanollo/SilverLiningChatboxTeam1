@@ -23,14 +23,7 @@ namespace Luis
             Game, 
             Name, 
             None, 
-            Time_challenge, 
-            Utilities_Cancel, 
-            Utilities_Confirm, 
-            Utilities_GoBack, 
-            Utilities_Help, 
-            Utilities_Repeat, 
-            Utilities_StartOver, 
-            Utilities_Stop
+            Time_challenge
         };
         [JsonProperty("intents")]
         public Dictionary<Intent, IntentScore> Intents;
