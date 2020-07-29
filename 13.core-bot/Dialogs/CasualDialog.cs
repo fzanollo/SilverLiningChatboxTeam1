@@ -95,10 +95,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             else
             {
                 questionNr = 0;
-                var gameEndMessageText = $"You scored: {points}!";
+                var gameEndMessageText = $"You scored: {points}!. Type anything if you want to play again :)";
                 var getEndMessage = MessageFactory.Text(gameEndMessageText, gameEndMessageText, InputHints.IgnoringInput);
-                await stepContext.Context.SendActivityAsync(getEndMessage, cancellationToken);
-                return await stepContext.ReplaceDialogAsync(InitialDialogId, gameEndMessageText, cancellationToken);
+                return await stepContext.ReplaceDialogAsync(nameof(MainDialog), gameEndMessageText, cancellationToken);
             }
         }
     }
