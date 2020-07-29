@@ -73,9 +73,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
                 }
             }
-            else
+            else //timed
             {
-                //else has to be timed
+               
             }
             return await stepContext.NextAsync(null, cancellationToken);
         }
