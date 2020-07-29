@@ -43,8 +43,9 @@ namespace QuestionsOverview
 
         public Tuple<string,int> getQuestion()
         {
-            
-            return (index<listSize)?(Tuple.Create(qst[index++].Item1, qst[index++].Item2)):(Tuple.Create("error",-1));
+            Tuple<string, int> tp = (index < listSize) ? (Tuple.Create(qst[index].Item1, qst[index].Item2)) : (Tuple.Create("error", -1));
+            index++;
+            return tp;
         }
 
         public void addQuestion(Tuple<string,int> tp)
