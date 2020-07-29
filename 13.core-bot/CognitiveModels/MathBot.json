@@ -385,8 +385,23 @@
       "entities": []
     },
     {
+      "text": "abraham",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "again",
       "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "alisa",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "alison",
+      "intent": "Name",
       "entities": []
     },
     {
@@ -437,6 +452,16 @@
     {
       "text": "anything",
       "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "armando",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "astrid",
+      "intent": "Name",
       "entities": []
     },
     {
@@ -572,6 +597,26 @@
     {
       "text": "cancelled",
       "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "casual",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "casual please",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "challenge",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "charles",
+      "intent": "Name",
       "entities": []
     },
     {
@@ -745,6 +790,16 @@
       "entities": []
     },
     {
+      "text": "diana",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "diego",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "dismiss",
       "intent": "Utilities.Stop",
       "entities": []
@@ -792,6 +847,11 @@
     {
       "text": "don't do that anymore",
       "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "drake",
+      "intent": "Name",
       "entities": []
     },
     {
@@ -1284,6 +1344,21 @@
       ]
     },
     {
+      "text": "i want 7",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
+      "text": "i want 7 min",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
+      "text": "i want 7 minutes",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
       "text": "i want bottom",
       "intent": "None",
       "entities": [
@@ -1294,6 +1369,11 @@
           "children": []
         }
       ]
+    },
+    {
+      "text": "i want casual",
+      "intent": "Game",
+      "entities": []
     },
     {
       "text": "i want fourth",
@@ -1538,6 +1618,11 @@
       "entities": []
     },
     {
+      "text": "i want to play casual",
+      "intent": "Game",
+      "entities": []
+    },
+    {
       "text": "i want to play for 2 minutes",
       "intent": "Time_challenge",
       "entities": []
@@ -1702,7 +1787,22 @@
       "entities": []
     },
     {
+      "text": "jonas",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "joseph",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "josh",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "juana",
       "intent": "Name",
       "entities": []
     },
@@ -1729,6 +1829,11 @@
     {
       "text": "just do it",
       "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "larris",
+      "intent": "Name",
       "entities": []
     },
     {
@@ -1759,6 +1864,11 @@
       "entities": []
     },
     {
+      "text": "malcolm",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "maybe 5 minutes",
       "intent": "Time_challenge",
       "entities": [
@@ -1771,7 +1881,17 @@
       ]
     },
     {
+      "text": "miguel",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "miguel is my name",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "mike",
       "intent": "Name",
       "entities": []
     },
@@ -2041,6 +2161,11 @@
       "entities": []
     },
     {
+      "text": "noah",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "nobody cares stop talking",
       "intent": "Utilities.Stop",
       "entities": []
@@ -2218,6 +2343,11 @@
       ]
     },
     {
+      "text": "only casual",
+      "intent": "Game",
+      "entities": []
+    },
+    {
       "text": "only for 10 minutes",
       "intent": "Time_challenge",
       "entities": [
@@ -2228,6 +2358,11 @@
           "children": []
         }
       ]
+    },
+    {
+      "text": "only time",
+      "intent": "Game",
+      "entities": []
     },
     {
       "text": "open help",
@@ -2350,6 +2485,11 @@
       "entities": []
     },
     {
+      "text": "paris",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "pedro",
       "intent": "Name",
       "entities": []
@@ -2432,6 +2572,11 @@
     {
       "text": "please return",
       "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "points",
+      "intent": "Game",
       "entities": []
     },
     {
@@ -2720,6 +2865,11 @@
       "entities": []
     },
     {
+      "text": "scarlett",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "select a random choice",
       "intent": "None",
       "entities": []
@@ -2937,6 +3087,11 @@
       "entities": []
     },
     {
+      "text": "simone",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "some help",
       "intent": "Utilities.Help",
       "entities": []
@@ -3102,6 +3257,11 @@
       "entities": []
     },
     {
+      "text": "terry",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "thank you very much",
       "intent": "Utilities.Confirm",
       "entities": []
@@ -3199,6 +3359,26 @@
     {
       "text": "three",
       "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "time",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "time please",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "time pls",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "tom",
+      "intent": "Name",
       "entities": []
     },
     {
