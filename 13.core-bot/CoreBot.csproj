@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dialogs\Class.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Cards\welcomeCard.json" />
   </ItemGroup>
 
