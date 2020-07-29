@@ -19,6 +19,14 @@ namespace Luis
 
         public string ChallengeType => Entities?._instance?.Type_of_Game?.FirstOrDefault()?.Text;
 
+        public string NumberEntity
+        {
+            get
+            {
+                var numValue = Entities?._instance?.number?.FirstOrDefault()?.Text;
+                return numValue;
+            }
+        }
         //add for answer/number entity
     }
 }

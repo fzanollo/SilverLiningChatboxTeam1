@@ -16,10 +16,12 @@ using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 
 namespace Microsoft.BotBuilderSamples.Dialogs
 {
+
     public class MainDialog : ComponentDialog
     {
         private readonly MathBotRecognizer _luisRecognizer;
         protected readonly ILogger Logger;
+            private GameDetails gameDetails = null;
 
         // Dependency injection uses this constructor to instantiate MainDialog
         public MainDialog(MathBotRecognizer luisRecognizer, GameDialog gameDialog, ILogger<MainDialog> logger)
@@ -35,6 +37,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                 IntroStepAsync,
                 GreetingStepAsync,
                 GameChoiceStepAsync,
+                HandleResponseAsync,
                 FinalStepAsync,
             }));
 
@@ -97,7 +100,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private async Task<DialogTurnResult> GameChoiceStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
-
+         
             switch (luisResult.TopIntent().intent)
             {
 
@@ -108,10 +111,38 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);
 
 
-                    var gameDetails = new GameDetails()
+                    gameDetails = new GameDetails()
                     {
                         GameType = challengeType
                     };
+
+                    ////
+                    if(challengeType == "time")
+                    {
+                        var messageText = stepContext.Options?.ToString() ?? $"How long do you want to play for?";
+                        var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+                        return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+
+                    }
+                    else
+                    {
+                        if(challengeType == "points")
+                        {
+                            var messageText = stepContext.Options?.ToString() ?? $"How many lives will you have?";
+                            var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+                            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+                        }
+                        else
+                        {
+                            if(challengeType == "casual")
+                            {
+                                var messageText = stepContext.Options?.ToString() ?? $"How many questions do you want?";
+                                var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+                                return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
+                            }
+                        }
+                    }
+                    /////
 
                     return await stepContext.BeginDialogAsync(nameof(GameDialog), gameDetails, cancellationToken);
 
@@ -123,6 +154,31 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     break;
             }
 
+            return await stepContext.NextAsync(null, cancellationToken);
+        }
+        private async Task<DialogTurnResult> HandleResponseAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            var messageTex = stepContext.Options?.ToString() ?? $"How many questions do?";
+            var promptMessag = MessageFactory.Text(messageTex, messageTex, InputHints.ExpectingInput);
+
+            var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
+            //switch (luisResult.TopIntent().intent)
+            //{
+                //case MathBot.Intent.Answer:
+                    //Initialize numberDetails with any entities we may have found in the response.
+                    gameDetails.GameAmount = luisResult.NumberEntity;
+
+                    var messageText = stepContext.Options?.ToString() ?? $"How many questions do you want?{gameDetails.GameAmount}";
+                    var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
+                    return await stepContext.BeginDialogAsync(nameof(GameDialog), gameDetails, cancellationToken);
+
+                //default:
+                    // Catch all for unhandled intents
+                    //var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
+                    //var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    //await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
+                    //break;
+            //}
             return await stepContext.NextAsync(null, cancellationToken);
         }
 
