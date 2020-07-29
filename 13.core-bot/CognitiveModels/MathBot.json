@@ -1,0 +1,3174 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "Game",
+      "features": []
+    },
+    {
+      "name": "Name",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "Time_challenge",
+      "features": []
+    },
+    {
+      "name": "Utilities.Cancel",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "Cancel"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.Confirm",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "Confirm"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.GoBack",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "GoBack"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.Help",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "Help"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.Repeat",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "Repeat"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.StartOver",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "StartOver"
+      },
+      "features": []
+    },
+    {
+      "name": "Utilities.Stop",
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "Stop"
+      },
+      "features": []
+    }
+  ],
+  "entities": [
+    {
+      "name": "time",
+      "children": [],
+      "roles": [],
+      "features": []
+    },
+    {
+      "name": "Utilities.DirectionalReference",
+      "children": [],
+      "inherits": {
+        "domain_name": "Utilities",
+        "model_name": "DirectionalReference"
+      },
+      "roles": [],
+      "features": []
+    }
+  ],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "Type of Game",
+      "subLists": [
+        {
+          "canonicalForm": "Time",
+          "list": []
+        },
+        {
+          "canonicalForm": "Points",
+          "list": []
+        },
+        {
+          "canonicalForm": "Casual",
+          "list": []
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "prebuiltEntities": [
+    {
+      "name": "number",
+      "roles": []
+    },
+    {
+      "name": "ordinal",
+      "roles": []
+    },
+    {
+      "name": "personName",
+      "roles": []
+    }
+  ],
+  "utterances": [
+    {
+      "text": "1",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "1 minute would be great!",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 7,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "10 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "13 min",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 5,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "2",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "22 min pls",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 5,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "3",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "42 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "5",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "53 minutes is fine",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "6 min",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "91 minutes please",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 0,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "a time challenge sounds fun",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "all finished",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "all of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "all set",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "alright",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "and after that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "any help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "any of it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "any one is ok",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "anyone is fine",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "anything",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "baby just be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "back",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "back please",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "back to",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "back to last",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "back to last step",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "back to the beginning",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "back to the last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "be quiet now",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "bring the previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can i talk to a person",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "can you help me",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "can you read it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you read that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you read that for me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you you read page aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel app",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel never mind",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel that",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancel that one",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "canceled",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "cancelled",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "choose anyone",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose for no. four",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose last",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose no. six",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose no.2",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose one of it randomly",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose the bottom left",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "choose the first choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose the fourth one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "choose the upper left choice",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 20,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "choose the upper right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "choose top right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "choose top right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "clear and start again",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "come om",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "come on",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "come on baby",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "come on stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "confirm",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "contact support",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "contact the customer service",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "could you say it again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "could you start it over",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "could you tell me what that says",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "customer service",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "detail aloud what that says",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "dismiss",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "display more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "display previously",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "displays more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "do it",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "do me a favor",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "do nothing",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "done",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "don't do that",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "don't do that anymore",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "end",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "end it",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "exit exit",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "exit stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "fine",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "finish",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "finish the game",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "finished",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "finished with",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "five min",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
+      "text": "forget about it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "four",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "get back",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "get back please",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "get back to last",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "get back to the last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "give me a casual challenge",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "give me a favor",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "give me more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "give me some help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "go ahead",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "go away",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "go back",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "go back on",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "go back please",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "go back to",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "go back to last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go back to previous",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go back to the last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go for it",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "go forward",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go previously",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go to the next one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go to the next three items",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go to the previous",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "go to the previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "god shut up",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "good morning! i am andrea",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "great",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "hey read that for me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "hey stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "how can i get it",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "how to do it",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "human service",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am done",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am finished",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am juan",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "i didn't hear repeat again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "i don't like it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i don't need",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i don't understand",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "i dont wanna play anymore",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i don't want it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i don't want to choose any one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i don't want to see you anymore",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i don't want to select any one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i have not heard",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "i like left one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 10,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i like second",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like second one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like the bottom one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i like the first one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like the third",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like the third choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like the top right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 19,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i like the upper right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i like upper right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 17,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i love you to stop talking",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i mean stop listening",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i need a person",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i need help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "i need manual customer service",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i need real human help",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i need some assistance",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "i need some help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "i need support",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i need to go to the next one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i need to hear this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i reject",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i said stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i think that 50 minutes would be enough",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 13,
+          "endPos": 22,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i wanna do only 7 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 16,
+          "endPos": 24,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want bottom",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 12,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want fourth",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want left",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 10,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want neither of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want no. 5",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want none of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 11,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want the casual mode",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "i want the first",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want the fourth choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want the left",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 14,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want the lower choice",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want the right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want the second one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want them all",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want third one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to all of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to choose bottom one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 17,
+          "endPos": 22,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose lower right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 17,
+          "endPos": 27,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 17,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose second one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to choose the first one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to choose the fourth",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to choose the last choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to choose the left one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 21,
+          "endPos": 24,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose the lower choice",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 21,
+          "endPos": 25,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose the right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 21,
+          "endPos": 25,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to choose third",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to end the game",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i want to go",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i want to leave",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i want to play",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "i want to play for 2 minutes",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
+      "text": "i want to play for 25 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 19,
+          "endPos": 28,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i want to play on time",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "i want to stop playing",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "i want to talk to a human",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to talk to a real human",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i would like to play the casual game",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "i would like you to read that for me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i would prefer time challenge",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "i'd like 40 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 9,
+          "endPos": 18,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "im pancho",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "i'm pedro",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "i'm sure",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "is there any help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "is there any person i can talk to",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "is there any real human",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "is there any real person",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "it finished",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "it's done",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "it's fine",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "it's finished",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "joseph",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "just be",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "just be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "just cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "just cancel it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "just do it",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "last step",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "lets do 5 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 8,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "lets start a time challenge",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "make a reading of this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "maybe 5 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 6,
+          "endPos": 14,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "miguel is my name",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "move to the next one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "my god shut up",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "my name is miguel",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "negative",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "neither",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "neither of those",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "neither one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "neither one of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "neither thank you",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "never",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "never mind",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "never mind cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "never mind cancel that",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "never mind stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "next",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "nice",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "no",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "no be quiet now",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "no cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no cancel cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no cancel it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no cancel that",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no doubt",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "no go back to",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "no i don't want that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no later",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no leave it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no more no",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no never mind",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no no",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no no cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no no cancel it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "no no go back to",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "no no no",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no no no no stop talking",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "no no thank you",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no not that one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no reject it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no shut up",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "no stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "no thank you",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no thanks",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no way",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no wrong",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no. 1",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no. 2",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no. 3",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "no.4",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "nobody cares stop talking",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "none",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none none",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none none of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none of them",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none of them thank you",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none of these",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "none of those",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "nope",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not at all",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not even close",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not exactly",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not now",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not quite",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not right now",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "not that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "nothing much",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "nothing never mind",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "nothing please",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "nowhere just be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "number two",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "of course",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "oh cancel",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "oh my god shut up",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "oh no",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "oh yeah",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "oh yes",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "ok",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "ok for now",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "ok stop stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "okay",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "only 23 minutes please",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 5,
+          "endPos": 14,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "only for 10 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 9,
+          "endPos": 18,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "open help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "opt for a random one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for any of it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for first one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for last",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for left",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 8,
+          "endPos": 11,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "opt for number 7",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 8,
+          "endPos": 12,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "opt for the last one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for the left one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 12,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "opt for the lower choice",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 12,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "opt for the right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 12,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "opt for the second",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "opt for the second choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "pablo",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "pardon",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "pedro",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "perfect",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "perfect thank you",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "please begin again",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "please do nothing",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "please help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "please read",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read me the page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read my latest email",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this page aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this page out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please read this to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please return",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "previous one please",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "quiet now",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "quit",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "read all on the screen to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read aloud the current text onscreen",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read file aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it outloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it please",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read it to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read me this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read my to list",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read outloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read page aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read page outloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read sentence out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read text",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read text aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read that out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the page onscreen to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the page out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the page to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the text to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read the words on this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read this for me please",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read this page aloud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read this page out loud",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read this page to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read what is currently on the screen to me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reject",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reject it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reopen a new page",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "repeat",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "repeat please",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "repeat that",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "restart",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "restart it",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "return",
+      "intent": "Utilities.GoBack",
+      "entities": []
+    },
+    {
+      "text": "return to the previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reveal more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reveal previous",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reveal previously",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "right",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "right yes",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "say again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "say again please",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "say that again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "select a random choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select a random one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select any",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select any choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select any of it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select five",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select fourth one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select lower one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 11,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "select no.5",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select the bottom choice",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "select the first",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select the last choice",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select the lower one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "select the right one",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "select the third one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select the upper right",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 11,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "select third",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "select upper",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Utilities.DirectionalReference",
+          "startPos": 7,
+          "endPos": 11,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "seven min",
+      "intent": "Time_challenge",
+      "entities": []
+    },
+    {
+      "text": "shift",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show earlier",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show me the next",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show me the previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show previous",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show the next 3",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show the next 4 items",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show the next one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show the next two options",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "show the previous one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "shut up",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "shut up be quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "shut up quiet",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "shut your mouth",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "silence",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "some help",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "sorry",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "sorry, don't do it",
+      "intent": "Utilities.Cancel",
+      "entities": []
+    },
+    {
+      "text": "sounds good",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sounds good thank you",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sounds good thanks",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sounds good to me",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sounds great",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sounds perfect",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "speak of what is on this page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "speak out",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "start again",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "start it over",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "start over",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "start over it",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "start reading this",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "state it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "stop please",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "stop talking",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "stop the game",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "submit",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "submit it",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "sure",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sure does",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sure is",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sure thing",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "sure yes",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "talk to a human",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tell me about the information on the screen",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tell me more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tell me the current text on screen",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tell more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "thank you very much",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "thank you yes",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that is correct",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that is right",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that right",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that sounds good",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that's all",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "that's fine",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "the last five",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "the last two",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "the points game",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "the points game sounds fun",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "the time game",
+      "intent": "Game",
+      "entities": []
+    },
+    {
+      "text": "they call me miguel",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "they look bad, can you give me other choices",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "this is good",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "three",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "turn off",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "turn off stop",
+      "intent": "Utilities.Stop",
+      "entities": []
+    },
+    {
+      "text": "turn over a new leaf",
+      "intent": "Utilities.StartOver",
+      "entities": []
+    },
+    {
+      "text": "two",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "very good",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "vocalize what's on the page",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "what about 33 minutes",
+      "intent": "Time_challenge",
+      "entities": [
+        {
+          "entity": "time",
+          "startPos": 11,
+          "endPos": 20,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "what about next one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what about the last",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what about the third one",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what after that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what before that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what did you say",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "what does the page say",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what is the previous",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what should i do",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "what was that again",
+      "intent": "Utilities.Repeat",
+      "entities": []
+    },
+    {
+      "text": "what's after that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's before that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's more",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's next",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's the next 2",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what's up next",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "who can help me",
+      "intent": "Utilities.Help",
+      "entities": []
+    },
+    {
+      "text": "would you please read that for me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "would you read that out loud please",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "would you read that to me please",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "ya",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah baby",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah bro",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah buddy",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah cool",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah go ahead",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah go for it",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yeah good",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    },
+    {
+      "text": "yes",
+      "intent": "Utilities.Confirm",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "MathBot",
+  "desc": "Mathematics Bot",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [
+    {
+      "pattern": "^(yes|sure)[[,]i want (that|the ({Utilities.DirectionalReference}|{ordinal}) ({number}|one))]",
+      "intent": "Utilities.Confirm"
+    }
+  ],
+  "settings": []
+}
