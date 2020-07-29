@@ -7,7 +7,12 @@
     },
     {
       "name": "Name",
-      "features": []
+      "features": [
+        {
+          "modelName": "personName",
+          "isRequired": false
+        }
+      ]
     },
     {
       "name": "None",
@@ -1582,7 +1587,22 @@
       "entities": []
     },
     {
+      "text": "my name is javier",
+      "intent": "Name",
+      "entities": []
+    },
+    {
       "text": "my name is miguel",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "my name is pancho",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "my name is pedro",
       "intent": "Name",
       "entities": []
     },
@@ -2112,6 +2132,11 @@
     },
     {
       "text": "pablo",
+      "intent": "Name",
+      "entities": []
+    },
+    {
+      "text": "pancho is my name",
       "intent": "Name",
       "entities": []
     },
