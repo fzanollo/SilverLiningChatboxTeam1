@@ -1,12 +1,17 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Luis;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Choices;
 using Microsoft.Bot.Schema;
+using Microsoft.Extensions.Logging;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 using QuestionsOverview;
 
@@ -64,7 +69,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             }
             else if (gameDetails.GameType == "casual")
             {
-                return await stepContext.BeginDialogAsync(nameof(CasualDialog), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(CasualDialog), null ,cancellationToken);
             }
             else //timed
             {
