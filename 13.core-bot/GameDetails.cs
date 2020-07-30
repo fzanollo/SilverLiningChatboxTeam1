@@ -9,5 +9,6 @@ namespace Microsoft.BotBuilderSamples
         public string GameType { get; set; }
 
         public string GameAmount { get; set; }
+
     }
 }

@@ -83,6 +83,22 @@ namespace Microsoft.BotBuilderSamples
             return thumbnailCard;
         }
 
+
+        public static ThumbnailCard GetThumbnailCard4(string question,string qsti)
+        {
+            var thumbnailCard = new ThumbnailCard
+            {
+                Title = question,
+                
+                Subtitle = qsti,
+                Text = "You can do it!",
+                Images = new List<CardImage> { new CardImage("https://i.pinimg.com/originals/6b/22/4a/6b224a3b8fbf3c6109f65541ab62bde5.jpg") },
+                //Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Get Started", value: "https://docs.microsoft.com/bot-framework") },
+            };
+
+            return thumbnailCard;
+        }
+
         public static ReceiptCard GetReceiptCard()
         {
             var receiptCard = new ReceiptCard
@@ -132,17 +148,17 @@ namespace Microsoft.BotBuilderSamples
         {
             var animationCard = new AnimationCard
             {
-                Title = "Microsoft Bot Framework",
-                Subtitle = "Animation Card",
+                Title = "MathBot!",
+                Subtitle = "Hi! My name is Mat! What's your name?",
                 Image = new ThumbnailUrl
                 {
-                    Url = "https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png",
+                    //Url = "https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png",
                 },
                 Media = new List<MediaUrl>
                 {
                     new MediaUrl()
                     {
-                        Url = "http://i.giphy.com/Ki55RUbOV5njy.gif",
+                        Url = "https://media.giphy.com/media/yx5CGBdwXdCbjEf6li/giphy.gif",
                     },
                 },
             };

@@ -71,6 +71,11 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             currentQuestion = $"Question number {questionNr+1}: {nextQuestion.Item1}";
             currentAnswer = nextQuestion.Item2;
 
+            //var attachments = new List<Attachment>();
+
+            //var reply = MessageFactory.Attachment(attachments);
+            //reply.Attachments.Add(Cards.GetThumbnailCard4("Question "+ (questionNr+1).ToString(),nextQuestion.Item1).ToAttachment());
+            //await stepContext.Context.SendActivityAsync(reply, cancellationToken);
             //prompt question and await answer
             var promptMessage = MessageFactory.Text(currentQuestion, currentQuestion, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
@@ -95,6 +100,9 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                     {
                         feedbackMessageText = $"{answer} is wrong but keep trying, you got this!";
                     }
+
+                    
+                    
 
                     var getGreetingMessage = MessageFactory.Text(feedbackMessageText, feedbackMessageText, InputHints.IgnoringInput);
                     await stepContext.Context.SendActivityAsync(getGreetingMessage, cancellationToken);

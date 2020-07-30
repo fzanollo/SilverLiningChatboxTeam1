@@ -54,7 +54,15 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
                 return await stepContext.NextAsync(null, cancellationToken);
             }
-
+            var attachments1 = new List<Attachment>();
+            
+            
+            
+            var reply1 = MessageFactory.Attachment(attachments1);
+            
+            reply1.Attachments.Add(Cards.GetAnimationCard().ToAttachment());
+            await stepContext.Context.SendActivityAsync(reply1, cancellationToken);
+            
             var messageText = stepContext.Options?.ToString() ?? $"Hi, my name is Mat, what is your name?";
             var promptMessage = MessageFactory.Text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
@@ -116,7 +124,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
                         GameType = challengeType
                     };
 
-                    ////
+                   
                     if(challengeType == "time")
                     {
                         var messageText = stepContext.Options?.ToString() ?? $"How long do you want to play for?";
