@@ -24,13 +24,14 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private const string OriginStepMsgText = "Where are you traveling from?";
         private Questions gameObject = new Questions();
 
-        public GameDialog(MathBotRecognizer luisRecognizer, CasualDialog casualDialog, PointsDialog pointsDialog)
+        public GameDialog(MathBotRecognizer luisRecognizer, CasualDialog casualDialog, PointsDialog pointsDialog, TimeDialog timeDialog)
             : base(nameof(GameDialog))
         {
             _luisRecognizer = luisRecognizer;
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(pointsDialog);
             AddDialog(casualDialog);
+            AddDialog(timeDialog);
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
                 GameStepAsync,
@@ -51,11 +52,10 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             else if (gameDetails.GameType == "casual")
             {
                 return await stepContext.BeginDialogAsync(nameof(CasualDialog), gameDetails, cancellationToken);
-                //return await stepContext.EndDialogAsync("optional", cancellationToken);
             }
             else //timed
             {
-
+                return await stepContext.BeginDialogAsync(nameof(TimeDialog), gameDetails, cancellationToken);
             }
             return await stepContext.NextAsync(null, cancellationToken);
         }

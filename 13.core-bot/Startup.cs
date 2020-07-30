@@ -41,6 +41,7 @@ namespace Microsoft.BotBuilderSamples
             services.AddSingleton<GameDialog>();
             services.AddSingleton<CasualDialog>();
             services.AddSingleton<PointsDialog>();
+            services.AddSingleton<TimeDialog>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, DialogAndWelcomeBot<MainDialog>>();
