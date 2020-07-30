@@ -24,11 +24,12 @@ namespace Microsoft.BotBuilderSamples.Dialogs
         private const string OriginStepMsgText = "Where are you traveling from?";
         private Questions gameObject = new Questions();
 
-        public GameDialog(MathBotRecognizer luisRecognizer, CasualDialog casualDialog)
+        public GameDialog(MathBotRecognizer luisRecognizer, CasualDialog casualDialog, PointsDialog pointsDialog)
             : base(nameof(GameDialog))
         {
             _luisRecognizer = luisRecognizer;
             AddDialog(new TextPrompt(nameof(TextPrompt)));
+            AddDialog(pointsDialog);
             AddDialog(casualDialog);
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
             {
@@ -45,27 +46,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             var gameDetails = (GameDetails)stepContext.Options;
             if (gameDetails.GameType == "points")
             {
-                int curr_points = 0;
-                int max_points = 10;
-                //int max_points = gameDetails.maxPoints;
-                while (curr_points < max_points)
-                {
-                    var nextQuestion = gameObject.getQuestion();
-                    string question = nextQuestion.Item1;
-                    int correct_answer = nextQuestion.Item2;
-                    //prompt question and await answer
-                    var promptMessage = MessageFactory.Text(question, question, InputHints.ExpectingInput);
-                    await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = promptMessage }, cancellationToken);
-                    var luisResult = await _luisRecognizer.RecognizeAsync<MathBot>(stepContext.Context, cancellationToken);
-                    //compare answer to correct answer
-                    //check intent:
-                    // if intent == answer
-                    //ifincorrect -> prompt "Incorrect answer! Correct answer is {correct_answer}, -1 point
-                    // if correct -> prompt "Correct Answer! +1
-                    //if intent == stop
-                    //end conversation, go to EndGameAsync
-                    //if no more questions exist, prompt something and exit
-                }
+                return await stepContext.BeginDialogAsync(nameof(PointsDialog), gameDetails, cancellationToken); 
             }
             else if (gameDetails.GameType == "casual")
             {
