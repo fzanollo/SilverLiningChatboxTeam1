@@ -51,6 +51,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             else if (gameDetails.GameType == "casual")
             {
                 return await stepContext.BeginDialogAsync(nameof(CasualDialog), gameDetails, cancellationToken);
+                //return await stepContext.EndDialogAsync("optional", cancellationToken);
             }
             else //timed
             {
@@ -61,9 +62,7 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
         private async Task<DialogTurnResult> EndGameAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-
-
-            return await stepContext.NextAsync(null, cancellationToken);
+            return await stepContext.EndDialogAsync("optional", cancellationToken);
         }
 
         

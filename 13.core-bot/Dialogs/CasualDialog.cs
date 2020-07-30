@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using System.Drawing;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Luis;
@@ -16,17 +16,19 @@ namespace Microsoft.BotBuilderSamples.Dialogs
     {
         private readonly MathBotRecognizer _luisRecognizer;
         private Questions gameObject = new Questions();
-        private int questionNr = 0;
-        private int points = 0;
+        private int questionNr;
+        private int points;
 
         private string currentQuestion;
         private int currentAnswer;
 
-        private int maxQuestions = 2;
+        private int maxQuestions = 0;
 
         public CasualDialog(MathBotRecognizer luisRecognizer)
             : base(nameof(CasualDialog))
         {
+            questionNr = 0;
+            points = 0;
             _luisRecognizer = luisRecognizer;
             AddDialog(new TextPrompt(nameof(TextPrompt)));
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
@@ -42,7 +44,12 @@ namespace Microsoft.BotBuilderSamples.Dialogs
 
         private async Task<DialogTurnResult> QuestionAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            
+            if(maxQuestions == 0)
+            {
+                var gameDetails = (GameDetails)stepContext.Options;
+                maxQuestions = int.Parse(gameDetails.GameAmount);
+            }
+
             var nextQuestion = gameObject.getQuestion();
             currentQuestion = $"Question number {questionNr + 1}: {nextQuestion.Item1}";
             currentAnswer = nextQuestion.Item2;
@@ -95,9 +102,11 @@ namespace Microsoft.BotBuilderSamples.Dialogs
             else
             {
                 questionNr = 0;
-                var gameEndMessageText = $"You scored: {points}!. Type anything if you want to play again :)";
+                var gameEndMessageText = $"You scored: {points}!.";
                 var getEndMessage = MessageFactory.Text(gameEndMessageText, gameEndMessageText, InputHints.IgnoringInput);
-                return await stepContext.ReplaceDialogAsync(nameof(MainDialog), gameEndMessageText, cancellationToken);
+                await stepContext.Context.SendActivityAsync(getEndMessage, cancellationToken);
+
+                return await stepContext.EndDialogAsync("optional", cancellationToken);
             }
         }
     }
